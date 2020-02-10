@@ -1,7 +1,5 @@
 ﻿cmake_minimum_required (VERSION 3.2)
 
-
-
 if($ENV{TRAVIS_BUILD_NUMBER})
  project(CppEnterpriseFramework VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else()
@@ -11,7 +9,6 @@ endif()
 # linking Boost unit test framework
 
 #find_package(GTest REQUIRED)
-
 
 configure_file (Config.h.in Config.h)
 
@@ -34,7 +31,6 @@ target_include_directories(EntityCommon
 
 # 2. link lib
 target_link_libraries (MainF PRIVATE EntityCommon)
-
 
 # set target compile options
 if (MSVC)

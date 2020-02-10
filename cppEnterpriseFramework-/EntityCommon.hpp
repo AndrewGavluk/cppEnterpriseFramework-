@@ -9,17 +9,24 @@ template <typename AttribStruct,
 class EntityCommon	
 {
 public:
-	EntityCommon();
+	delete EntityCommon();
+	EntityCommon(std::string, std::string);
 	~EntityCommon();
 
+	void deleter();
+	void undoDeleter();
+
 private:
-	bool m_Delete;
 	uint64_t m_Guid;
 	std::string m_Name;
+
+	uint8_t m_state;
+
+	std::string m_Alias;
 	time_t m_CreationTime;
 	
-	AttribStruct m_Attributes;
-	TablesMap m_TablesMap;
-	FormMap	m_FormMap;
+	FormMap & m_FormMap;
+	TablesMap & m_TablesMap;
+	AttribStruct & m_Attributes;
 };
 
